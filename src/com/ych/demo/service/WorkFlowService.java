@@ -1,5 +1,6 @@
 package com.ych.demo.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,8 @@ import com.founder.fix.fixflow.core.impl.identity.Authentication;
 import com.founder.fix.fixflow.core.impl.util.StringUtil;
 import com.founder.fix.fixflow.core.task.TaskInstance;
 import com.founder.fix.fixflow.core.task.TaskQuery;
+import com.founder.fix.fixflow.service.FlowCenterService;
+import com.ych.util.SpringBeanUtil;
 
 /**
  * fixflow 任务中心service
@@ -128,6 +131,20 @@ public class WorkFlowService {
 		if(processEngine != null){
 			processEngine.contextClose(true, false);
 		}
+	}
+	/**
+	 * 获得我的流程
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<Map<String, Object>> getMyProcess() throws SQLException {
+//		1200119391
+		List<Map<String, String>> result = getFlowCenter().queryStartProcess("1200119391");
+		System.out.println("result:");
+		return null;
+	}
+	public FlowCenterService getFlowCenter() {
+		return (FlowCenterService) SpringBeanUtil.getBean("flowCenterServiceImpl");
 	}
 
 }

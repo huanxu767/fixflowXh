@@ -1,5 +1,6 @@
 package com.ych.demo.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,21 @@ public class WorkFlowController {
 		ModelAndView modelAndView = new ModelAndView("/fixflow/toDoTask");
 		List<Map<String,Object>> taskList = workFlowService.getToDoTask();
 		modelAndView.addObject("taskList", taskList);
+		return modelAndView;
+	}
+	/**
+	 * 获取我的流程
+	 * @return
+	 */
+	@RequestMapping("getMyProcess")
+	public ModelAndView getMyProcess(){
+		
+		ModelAndView modelAndView = new ModelAndView("/fixflow/toDoTask");
+		try {
+			workFlowService.getMyProcess();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return modelAndView;
 	}
 }
