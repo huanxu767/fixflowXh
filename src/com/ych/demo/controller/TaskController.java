@@ -37,6 +37,7 @@ public class TaskController {
 	 */
 	@RequestMapping("queryToDoTask")
 	public ModelAndView queryToDoTask(){
+		System.out.println("²éÑ¯´ú°ì");
 		ModelAndView modelAndView = new ModelAndView("/fixflow/toDoTask");
 		List<Map<String,Object>> taskResult = new ArrayList<Map<String,Object>>();
 		TaskQuery taskQuery = taskService.createTaskQuery();
