@@ -53,7 +53,7 @@ fixflow-webapp-editor、fixflow-converter web设计器模块
 
 
 //发起申请
-http://127.0.0.1:8080/fixflowSpringDemo-noMaven/startTask.action?userId=1200119390&processDefinitionKey=QJLC
+http://127.0.0.1:8080/fix/startTask.action?userId=1200119390&processDefinitionKey=QJLC
 
 
 http://127.0.0.1:8080/bpmcenter/queryTaskDetailInfor.action?processInstanceId=&processDefinitionKey=QJLC
@@ -86,3 +86,11 @@ List<Map<String, String>> result = getFlowCenter().queryStartProcess(userId);
 
  {resourceId=5f6c67e9-3c49-406d-aa95-7da98a1a9e3e, category=null, diagramResourceName=QJLC.png, processDefinitionKey=QJLC, startFormKey=dealTask.action, deploymentId=540fa470-19e1-4447-983b-20d2117ab7e6, formUrl=dealTask.action, processDefinitionName=请假流程, processDefinitionId=QJLC:1:644a984e-34fd-445c-a4d6-b95c9a9e806a, resourceName=QJLC.bpmn, version=1}
  ]
+
+public List<Map<String, Object>> getMyProcess() throws SQLException {
+//		1200119391
+		List<Map<String, String>> result = modelService.getStartProcessByUserId("1200119390");
+		System.out.println("result:");
+		return null;
+	}
+
