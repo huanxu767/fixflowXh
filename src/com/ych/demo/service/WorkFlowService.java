@@ -19,7 +19,6 @@ import com.founder.fix.fixflow.core.task.TaskQuery;
 
 /**
  * fixflow 任务中心service
- * @author ych
  *
  */
 @Service("workFlowService")
